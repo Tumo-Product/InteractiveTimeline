@@ -2,33 +2,33 @@ let mouseLocation = {x: -1, y: -1};
 let done = false;
 
 const configureSliders = () => {
-    $("body").mousemove(function(e) {
-        mouseLocation.x = e.pageX - $(".comparison-slider").offset().left;
-        mouseLocation.y = e.pageY - $(".comparison-slider").offset().top;
-    });
-
-    $(".resize").css("width", "95.3%");
-    $(".bullet").css("left", "92.7%");
-
-    $(".comparison-slider").mouseover(function () {
-        if (!done) {
-            setTimeout(() => {
-                $(".resize").removeClass("resizeAnimation");
-                $(".bullet").removeClass("bulletAnimation");
-                if (mouseLocation.x < 35) {
-                    mouseLocation.x = 35;
-                } else if (mouseLocation.x > 713.781) {
-                    mouseLocation.x = 713.781;
-                }
-
-                $(".resize").css("width", mouseLocation.x);
-                $(".bullet").css("left", mouseLocation.x - 20);
-            }, 100);
-        }
-        done = true;
-    })
-
     if ($(".comparison-slider")[0]) {
+        $("body").mousemove(function(e) {
+            mouseLocation.x = e.pageX - $(".comparison-slider").offset().left;
+            mouseLocation.y = e.pageY - $(".comparison-slider").offset().top;
+        });
+
+        $(".resize").css("width", "95.3%");
+        $(".bullet").css("left", "92.7%");
+
+        $(".comparison-slider").mouseover(function () {
+            if (!done) {
+                setTimeout(() => {
+                    $(".resize").removeClass("resizeAnimation");
+                    $(".bullet").removeClass("bulletAnimation");
+                    if (mouseLocation.x < 35) {
+                        mouseLocation.x = 35;
+                    } else if (mouseLocation.x > 713.781) {
+                        mouseLocation.x = 713.781;
+                    }
+
+                    $(".resize").css("width", mouseLocation.x);
+                    $(".bullet").css("left", mouseLocation.x - 20);
+                }, 100);
+            }
+            done = true;
+        })
+
         let compSlider = $(".comparison-slider");
 
         compSlider.each(function () {

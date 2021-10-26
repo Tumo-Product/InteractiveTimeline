@@ -131,6 +131,22 @@ nav.social li:first-child a {
     height: 415px;
     background-color: #F3F3F3;
     border-radius: 10px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.center {
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center p {
+    font-family: FedraBold;
+    font-size: 20px;
+    text-align: center;
+    width: 75%;
 }
 
 .wrapper .comparison-slider {

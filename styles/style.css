@@ -276,10 +276,12 @@ body {
     padding: 10px;
     display: flex;
     align-items: center;
+    overflow: visible !important;
 }
 
 #timeline .inside {
-    background: rgb(193 188 213);
+    overflow: visible !important;
+    background: rgb(208 204 223);
     border-radius: 25px;
     box-shadow: inset -2px -3px 4px 0 #88888830, inset 2px 3px 4px #5a5a5a30;
     position: initial;
@@ -292,9 +294,9 @@ body {
     gap: 15px;
 }
 
-#timeline .point {
+.point {
+    transition: 0.2s;
     cursor: pointer;
-    left: 10px;
     border-radius: 20px;
     /* position: absolute; */
     margin: 0;
@@ -312,4 +314,9 @@ body {
     font-family: FedraBold;
     font-size: 16px;
     color: #4e87b9;
+}
+
+.enabled {
+    transform: scale(1.25);
+    border-radius: 18px;
 }

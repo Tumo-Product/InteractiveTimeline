@@ -11,6 +11,8 @@ const view = {
     switchMedia: (key) => {
         $(".wrapper").css({opacity: 0, "pointer-events": "none"});
         $(`#${key}`).css({opacity: 1, "pointer-events": "all"});
+        $(".point").removeClass('enabled');
+        $(`#p_${key}`).addClass('enabled');
     },
 
     addMedia: (key, media) => {
