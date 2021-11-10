@@ -281,7 +281,7 @@ body {
 
 #timeline .inside {
     overflow: visible !important;
-    background: rgb(208 204 223);
+    /* background: rgb(208, 204, 223); */
     border-radius: 25px;
     box-shadow: inset -2px -3px 4px 0 #88888830, inset 2px 3px 4px #5a5a5a30;
     position: initial;
@@ -312,11 +312,14 @@ body {
 #timeline p {
     margin-top: 3px;
     font-family: FedraBold;
-    font-size: 16px;
-    color: #4e87b9;
+    font-size: 18px;
+    color: #ebd72f;
 }
 
 .enabled {
-    transform: scale(1.25);
-    border-radius: 18px;
+    transform: scale(0.85);
+}
+
+.enabled p {
+    opacity: 0.6;
 }

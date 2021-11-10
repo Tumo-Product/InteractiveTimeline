@@ -1,26 +1,13 @@
 const view = {
-    addPoint: (point) => {
-        let pointElement = `<div id="p_${point}" class="point"><p>${point}</p></div>`;
-        $(".inside").append(pointElement);
-        $(`#p_${point}`).click(() => {
-            let key = $(`#${point} p`).text();
-            view.switchMedia(point);
-        });
-    },
-
-    switchMedia: (key) => {
-        $(".wrapper").css({opacity: 0, "pointer-events": "none"});
-        $(`#${key}`).css({opacity: 1, "pointer-events": "all"});
-        $(".point").removeClass('enabled');
-        $(`#p_${key}`).addClass('enabled');
-    },
-
     addMedia: (key, media) => {
         switch (media.type) {
             case "image":
                 $(".sliderContainer").append(`
                 <div id="${key}" class="wrapper">
                     <img src="${media.image}">
+                    <div class="mask"></div>
+                    <div class="circle"></div>
+                    <p>${key}</p>
                 </div>`);
                 break;
             case "sliding_images":
