@@ -173,21 +173,69 @@ nav.social li:first-child a {
     flex-shrink: 0 !important;
 }
 
+.open .circle {
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    box-shadow: 0 2px 2px 0 rgba(168,168,175,0.59);
+}
+
 .active img {
     filter: grayscale(0) !important;
-    filter: blur(0px) !important;
 }
 
 .active .mask {
-    backdrop-filter: blur(0px) !important;
     opacity: 0 !important;
 }
 
-.active p {
+.active .key {
     opacity: 1 !important;
+    z-index: 1;
 }
 
-.wrapper p {
+.gradientContainer {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    transition: 1s;
+}
+
+.gradient {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(180deg, rgba(69,96,128,0) 0%, rgba(110,138,168,0.67) 31.46%, rgba(126,155,184,0.95) 100%);
+    opacity: 0;
+    transition: 0.8s;
+    bottom: 0px;
+}
+
+.active .gradientContainer {
+    padding-top: 35px;
+    transition: 0.8s;
+}
+
+.open .gradient {
+    opacity: 1;
+    z-index: 0;
+}
+
+.text {
+    transition: 0.5s;
+    z-index: 1;
+    opacity: 0;
+    font-size: 12px;
+    font-family: FedraDemi;
+    width: 414px;
+    color: #F3F3F3;
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.wrapper .key {
     transition: 0.4s;
     position: absolute;
     color: #F3F3F3;
@@ -197,12 +245,14 @@ nav.social li:first-child a {
 }
 
 .circle {
+    z-index: 2;
+    transition: 1s;
     position: absolute;
     border-radius: 100%;
     background-color: #F3F3F3;
     width: 10px;
     height: 10px;
-    bottom: 42px;
+    top: 6px;
 }
 
 .center {
