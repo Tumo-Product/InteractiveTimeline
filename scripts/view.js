@@ -1,8 +1,10 @@
 const view = {
+    textOpen: false,
+
     addMedia: (key, media) => {
         switch (media.type) {
             case "image":
-                $(".sliderContainer").append(`
+                $(".wrapperContainer").append(`
                 <div id="${key}" class="wrapper">
                     <img src="${media.image}">
                     <div class="mask"></div>
@@ -50,12 +52,25 @@ const view = {
         $(".active .text").css("position", "relative");
         await timeout(300);
         $(".active .text").css("opacity", 1);
+
+        view.textOpen = true;
     },
     deactivate: async (obj) => {
         $(".wrapper .key").css("opacity", 1);
 
         view.closeText();
         obj.removeClass("active");
+
+        view.textOpen = false;
+    },
+    toggleText: async () => {
+        view.textOpen = !view.textOpen;
+
+        if (view.textOpen) {
+            view.activate(activatedYear);
+        } else {
+            view.closeText();
+        }
     },
     closeText: async () => {
         $(".active .gradientContainer").css("height", 56);
