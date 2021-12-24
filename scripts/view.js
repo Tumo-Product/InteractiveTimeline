@@ -58,12 +58,15 @@ const view = {
         view.textOpen = true;
     },
     deactivate: async (obj) => {
-        $(".wrapper .key").css("opacity", 1);
-
         view.closeText();
         obj.removeClass("active");
 
         view.textOpen = false;
+        setTimeout(() => {
+            if (activatedYear === -1) {
+                $(".wrapper .key").css("opacity", 1);
+            }
+        }, 250);
     },
     toggleText: async () => {
         view.textOpen = !view.textOpen;

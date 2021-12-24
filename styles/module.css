@@ -246,13 +246,14 @@ a:hover:before {
 }
 
 .wrapper .key {
-    transition: 0.4s;
+    transition: 0.2s;
     position: absolute;
     color: #F3F3F3;
     font-family: FedraBold;
-    font-size: 22px;
+    font-size: 16px;
     bottom: 10px;
     z-index: 4;
+    white-space: nowrap;
 }
 
 .circle {

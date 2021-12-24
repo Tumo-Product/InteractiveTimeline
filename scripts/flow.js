@@ -7,16 +7,18 @@ const timeout = (ms) => {
 }
 
 const onPageLoad = async () => {
-    points = await network.getData();
+    let data    = await network.getData();
+    points      = data.points;
 
-    for (let key in points) {
-        view.addMedia(key, points[key]);
+    for (let i = 0; i < points.length; i++) {
+        view.addMedia(points[i].key, points[i]);
     }
 
     $(".wrapper").mouseenter(async function () {  
-        view.activate($(this));
         activatedYear = $(this);
+        view.activate($(this));
     }).mouseleave(function () {
+        activatedYear = -1;
         view.deactivate($(this));
     });
 
@@ -27,7 +29,7 @@ const onPageLoad = async () => {
 
 const imageLoaded = () => {
     imagesLoaded++;
-    if (imagesLoaded === Object.keys(points).length) {
+    if (imagesLoaded === points.length) {
         loader.toggle();
     }
 }
