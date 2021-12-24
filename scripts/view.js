@@ -6,7 +6,7 @@ const view = {
             case "image":
                 $(".wrapperContainer").append(`
                 <div id="${key}" class="wrapper">
-                    <img src="${media.image}">
+                    <img id="i_${key}" src="">
                     <div class="mask"></div>
                     <p class="key">${key}</p>
                     <div class="gradientContainer">
@@ -16,6 +16,8 @@ const view = {
                     </div>
                 </div>`);
 
+                document.getElementById(`i_${key}`).onload = imageLoaded;
+                document.getElementById(`i_${key}`).src = media.image;
                 break;
             case "sliding_images":
                 $(".sliderContainer").append(`
