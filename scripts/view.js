@@ -18,6 +18,9 @@ const view = {
 
                 document.getElementById(`i_${key}`).onload = imageLoaded;
                 document.getElementById(`i_${key}`).src = media.image;
+                if (media.style !== undefined) {
+                    document.getElementById(`i_${key}`).style = media.style;
+                }
                 break;
             case "sliding_images":
                 $(".sliderContainer").append(`
