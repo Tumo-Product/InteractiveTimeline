@@ -137,7 +137,7 @@ a:hover:before {
     border-radius: 0px 12px 12px 0px;
 }
 
-.wrapper img {
+.wrapper .image {
     filter: blur(5px);
     width: 600px;
     position: absolute;
@@ -160,7 +160,21 @@ a:hover:before {
     flex-shrink: 0 !important;
 }
 
+.active .key {
+    pointer-events: all;
+}
+
+.iconBased.active .key {
+    animation: pulsate 2s infinite;
+}
+
+.iconBased.open .key {
+    pointer-events: none !important;
+    animation: none !important;
+}
+
 .open .circle {
+    opacity: 1 !important;
     height: 18px;
     width: 18px;
     /* box-shadow: 0 2px 2px 0 rgba(168,168,175,0.59); */
@@ -190,11 +204,6 @@ a:hover:before {
 
 .active .mask {
     opacity: 0 !important;
-}
-
-.active .key {
-    opacity: 1 !important;
-    z-index: 3;
 }
 
 .gradientContainer {
@@ -229,8 +238,16 @@ a:hover:before {
     opacity: 1;
 }
 
-.open img {
+.open .image {
     filter: blur(5px) !important;
+}
+
+.open img.key {
+    opacity: 0 !important;
+}
+
+.open .keyStroke {
+    opacity: 1 !important;
 }
 
 .text {
@@ -245,15 +262,40 @@ a:hover:before {
     margin-bottom: 42px;
 }
 
-.wrapper .key {
-    transition: 0.2s;
+.iconBased .key {
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.key {
+    transition: 0.3s;
     position: absolute;
+    bottom: 10px;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.keyStroke {
+    transition: 0.3s;
+    position: absolute;
+    bottom: 10px;
+    z-index: 3;
+}
+
+p.key {
     color: #F3F3F3;
     font-family: FedraBold;
     font-size: 16px;
-    bottom: 10px;
-    z-index: 4;
     white-space: nowrap;
+}
+
+img.key, .keyStroke {
+    width   : 50px;
+    height  : 50px;
+}
+
+.iconBased .circle {
+    opacity: 0;
 }
 
 .circle {

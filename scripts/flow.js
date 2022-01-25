@@ -22,9 +22,8 @@ const onPageLoad = async () => {
         view.deactivate($(this));
     });
 
-    $(".circle").click(function () {
-        view.toggleText();
-    });
+    $(".circle").click(view.toggleText);
+    $(".iconBased .key").click(view.toggleText);
 }
 
 const imageLoaded = () => {

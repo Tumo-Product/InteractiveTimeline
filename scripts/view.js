@@ -6,7 +6,7 @@ const view = {
             case "image":
                 $(".wrapperContainer").append(`
                 <div id="${key}" class="wrapper">
-                    <img id="i_${key}" src="">
+                    <img class="image" id="i_${key}" src="">
                     <div class="mask"></div>
                     <p class="key">${key}</p>
                     <div class="gradientContainer">
@@ -16,44 +16,51 @@ const view = {
                     </div>
                 </div>`);
 
-                document.getElementById(`i_${key}`).onload = imageLoaded;
-                document.getElementById(`i_${key}`).src = media.image;
-                if (media.style !== undefined) {
-                    document.getElementById(`i_${key}`).style = media.style;
-                }
+                
                 break;
-            case "sliding_images":
-                $(".sliderContainer").append(`
-                <div id="${key}" class="wrapper">
-                    <div class="comparison-slider">
-                        <img src="${media.firstImage}">
-                        <div class="resize resizeAnimation" style="width: 98.5%;">
-                            <img src="${media.secondImage}">
-                        </div>
-                        <div class="bullet bulletAnimation">
-                            <div><img src="images/icons/slider.png"></div>
-                        </div>
+            case "icon":
+                $(".wrapperContainer").append(`
+                <div id="${key}" class="wrapper iconBased">
+                    <img class="image" id="i_${key}" src="">
+                    <div class="mask"></div>
+                    <img class="key" src="images/icons/${key}.png"></img>
+                    <img class="keyStroke" src="images/icons/${key}Stroke.png"></img>
+                    <div class="gradientContainer">
+                        <div class="circle"></div>
+                        <p class="text">${media.text}</p>
+                        <div class="gradient"></div>
                     </div>
                 </div>`);
+
+
                 break;
-            case "video":
-                $(".sliderContainer").append(`
-                <div id="${key}" class="wrapper">
-                    ${media.embed}
-                </div>
-                `);
-                break;
+        }
+
+        document.getElementById(`i_${key}`).onload = imageLoaded;
+        document.getElementById(`i_${key}`).src = media.image;
+        if (media.style !== undefined) {
+            document.getElementById(`i_${key}`).style = media.style;
         }
     },
     activate: async(obj) => {
-        $(".wrapper .key").css("opacity", 0);
         obj.addClass("active");
         $(".active").addClass("open");
+
+        $(".wrapper").each(function() {
+            if (!$(this).hasClass("active")) {
+                $(this).find(".key").css("opacity", 0);
+                $(this).find(".keyStroke").css("opacity", 0);
+            } else {
+                $(this).find(".key").css("opacity", 1);
+                $(this).find(".keyStroke").css("opacity", 1);
+            }
+        });
 
         $(".active .text").css("position", "absolute");
         let height = parseFloat($(".active .text").css("height"));
         
-        $(".active .gradientContainer").css("height", height + 77);
+        let offset = $(".active").hasClass("iconBased") ? 115 : 77;
+        $(".active .gradientContainer").css("height", height + offset);
         $(".active .text").css("position", "relative");
         await timeout(300);
         $(".active .text").css("opacity", 1);
@@ -68,6 +75,7 @@ const view = {
         setTimeout(() => {
             if (activatedYear === -1) {
                 $(".wrapper .key").css("opacity", 1);
+                $(".wrapper .keyStroke").css("opacity", 1);
             }
         }, 250);
     },

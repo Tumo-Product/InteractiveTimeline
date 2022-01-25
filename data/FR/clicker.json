@@ -1,0 +1,25 @@
+{
+    "points": [
+        {
+            "key": "box",
+            "type": "icon",
+            "image": "https://content-tools.tumo.world/VideoStorage/timelineData/clicker/packaging.jpeg",
+            "style" : "width: 500px; height: 700px",
+            "text": "La General Motors Corporation apporte un modèle appelé Futurama à l’Exposition universelle de New York qui était un modèle possible pour les villes dans 20 ans. Le modèle a été conçu avec des autoroutes massives reliant différentes parties d’une ville."
+        },
+        {
+            "key": "hanger",
+            "type": "icon",
+            "image": "https://content-tools.tumo.world/VideoStorage/timelineData/clicker/hanger.jpeg",
+            "style" : "width: 520px; height: 700px",
+            "text": "Les voitures commencent à devenir beaucoup plus abordables et populaires en raison de leur commodité. Les quartiers et les rues qui étaient autrefois dédiés aux gens sont démolis pour construire des autoroutes."
+        },
+        {
+            "key": "cloth",
+            "type": "icon",
+            "image": "https://content-tools.tumo.world/VideoStorage/timelineData/clicker/microfiber.jpeg",
+            "style" : "width: 520px; height: 800px; top: -200px",
+            "text": "Le nombre de vélos à Amsterdam tombe à un niveau record tandis que le nombre de voitures quadruple. Parallèlement, des plans sont proposés pour remplir les canaux historiques, niveler des quartiers entiers et rendre la ville plus pratique pour les voitures."
+        }
+    ]
+}
