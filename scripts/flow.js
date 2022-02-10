@@ -1,6 +1,11 @@
 let imagesLoaded = 0;
-let points;
 let activatedYear = -1;
+let points;
+
+let language    = "";
+let id          = "";
+
+let imagesCount = 0;
 
 const timeout = (ms) => {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -8,7 +13,9 @@ const timeout = (ms) => {
 
 const onPageLoad = async () => {
     let data    = await network.getData();
-    points      = data.points;
+    language    = data.data.language;
+    points      = data.data.set.points;
+    id          = data.data.name;
 
     for (let i = 0; i < points.length; i++) {
         view.addMedia(points[i].key, points[i]);

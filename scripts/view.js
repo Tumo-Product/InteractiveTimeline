@@ -23,8 +23,8 @@ const view = {
                 <div id="${key}" class="wrapper iconBased">
                     <img class="image" id="i_${key}" src="">
                     <div class="mask"></div>
-                    <img class="key" src="images/icons/${key}.png"></img>
-                    <img class="keyStroke" src="images/icons/${key}Stroke.png"></img>
+                    <img class="key" src="https://content-tools.tumo.world/FileSystem/data/InteractiveTimeline/${language}/${id}/icons/${key}.png"></img>
+                    <img class="keyStroke" src="https://content-tools.tumo.world/FileSystem/data/InteractiveTimeline/${language}/${id}/icons/${key}Stroke.png"></img>
                     <div class="gradientContainer">
                         <div class="circle"></div>
                         <p class="text">${media.text}</p>
