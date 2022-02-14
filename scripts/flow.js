@@ -15,7 +15,7 @@ const onPageLoad = async () => {
     let data    = await network.getData();
     language    = data.data.language;
     points      = data.data.set.points;
-    id          = data.data.name;
+    id          = data.data._id;
 
     for (let i = 0; i < points.length; i++) {
         view.addMedia(points[i].key, points[i]);
